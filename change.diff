@@ -1,0 +1,101 @@
+diff -bur /Users/sshao/projects/apache-spark/external/kafka-0-10/src/main/scala/org/apache/spark/streaming/kafka010/CachedKafkaConsumer.scala /Users/sshao/projects/spark-streaming-kafka-0-10-connector/kafka-0-10/src/main/scala/org/apache/spark/streaming/kafka010/CachedKafkaConsumer.scala
+--- /Users/sshao/projects/apache-spark/external/kafka-0-10/src/main/scala/org/apache/spark/streaming/kafka010/CachedKafkaConsumer.scala	2016-11-11 10:52:39.000000000 +0800
++++ /Users/sshao/projects/spark-streaming-kafka-0-10-connector/kafka-0-10/src/main/scala/org/apache/spark/streaming/kafka010/CachedKafkaConsumer.scala	2016-11-24 16:35:56.000000000 +0800
+@@ -22,8 +22,7 @@
+ import org.apache.kafka.clients.consumer.{ ConsumerConfig, ConsumerRecord, KafkaConsumer }
+ import org.apache.kafka.common.{ KafkaException, TopicPartition }
+ 
+-import org.apache.spark.SparkConf
+-import org.apache.spark.internal.Logging
++import org.apache.spark.{Logging, SparkConf}
+ 
+ 
+ /**
+diff -bur /Users/sshao/projects/apache-spark/external/kafka-0-10/src/main/scala/org/apache/spark/streaming/kafka010/ConsumerStrategy.scala /Users/sshao/projects/spark-streaming-kafka-0-10-connector/kafka-0-10/src/main/scala/org/apache/spark/streaming/kafka010/ConsumerStrategy.scala
+--- /Users/sshao/projects/apache-spark/external/kafka-0-10/src/main/scala/org/apache/spark/streaming/kafka010/ConsumerStrategy.scala	2016-11-11 11:18:14.000000000 +0800
++++ /Users/sshao/projects/spark-streaming-kafka-0-10-connector/kafka-0-10/src/main/scala/org/apache/spark/streaming/kafka010/ConsumerStrategy.scala	2016-11-24 16:35:56.000000000 +0800
+@@ -26,7 +26,7 @@
+ import org.apache.kafka.common.TopicPartition
+ 
+ import org.apache.spark.annotation.Experimental
+-import org.apache.spark.internal.Logging
++import org.apache.spark.Logging
+ 
+ /**
+  * :: Experimental ::
+diff -bur /Users/sshao/projects/apache-spark/external/kafka-0-10/src/main/scala/org/apache/spark/streaming/kafka010/DirectKafkaInputDStream.scala /Users/sshao/projects/spark-streaming-kafka-0-10-connector/kafka-0-10/src/main/scala/org/apache/spark/streaming/kafka010/DirectKafkaInputDStream.scala
+--- /Users/sshao/projects/apache-spark/external/kafka-0-10/src/main/scala/org/apache/spark/streaming/kafka010/DirectKafkaInputDStream.scala	2016-11-11 11:18:14.000000000 +0800
++++ /Users/sshao/projects/spark-streaming-kafka-0-10-connector/kafka-0-10/src/main/scala/org/apache/spark/streaming/kafka010/DirectKafkaInputDStream.scala	2016-11-24 16:35:56.000000000 +0800
+@@ -21,15 +21,13 @@
+ import java.util.concurrent.ConcurrentLinkedQueue
+ import java.util.concurrent.atomic.AtomicReference
+ 
+-import scala.annotation.tailrec
+ import scala.collection.JavaConverters._
+ import scala.collection.mutable
+ 
+ import org.apache.kafka.clients.consumer._
+-import org.apache.kafka.common.{ PartitionInfo, TopicPartition }
++import org.apache.kafka.common.TopicPartition
+ 
+-import org.apache.spark.SparkException
+-import org.apache.spark.internal.Logging
++import org.apache.spark.Logging
+ import org.apache.spark.storage.StorageLevel
+ import org.apache.spark.streaming.{StreamingContext, Time}
+ import org.apache.spark.streaming.dstream._
+diff -bur /Users/sshao/projects/apache-spark/external/kafka-0-10/src/main/scala/org/apache/spark/streaming/kafka010/KafkaRDD.scala /Users/sshao/projects/spark-streaming-kafka-0-10-connector/kafka-0-10/src/main/scala/org/apache/spark/streaming/kafka010/KafkaRDD.scala
+--- /Users/sshao/projects/apache-spark/external/kafka-0-10/src/main/scala/org/apache/spark/streaming/kafka010/KafkaRDD.scala	2016-11-11 11:18:14.000000000 +0800
++++ /Users/sshao/projects/spark-streaming-kafka-0-10-connector/kafka-0-10/src/main/scala/org/apache/spark/streaming/kafka010/KafkaRDD.scala	2016-11-24 16:35:56.000000000 +0800
+@@ -24,8 +24,7 @@
+ import org.apache.kafka.clients.consumer.{ ConsumerConfig, ConsumerRecord }
+ import org.apache.kafka.common.TopicPartition
+ 
+-import org.apache.spark.{Partition, SparkContext, SparkException, TaskContext}
+-import org.apache.spark.internal.Logging
++import org.apache.spark.{Logging, Partition, SparkContext, TaskContext}
+ import org.apache.spark.partial.{BoundedDouble, PartialResult}
+ import org.apache.spark.rdd.RDD
+ import org.apache.spark.scheduler.ExecutorCacheTaskLocation
+diff -bur /Users/sshao/projects/apache-spark/external/kafka-0-10/src/main/scala/org/apache/spark/streaming/kafka010/KafkaTestUtils.scala /Users/sshao/projects/spark-streaming-kafka-0-10-connector/kafka-0-10/src/main/scala/org/apache/spark/streaming/kafka010/KafkaTestUtils.scala
+--- /Users/sshao/projects/apache-spark/external/kafka-0-10/src/main/scala/org/apache/spark/streaming/kafka010/KafkaTestUtils.scala	2016-11-11 10:52:39.000000000 +0800
++++ /Users/sshao/projects/spark-streaming-kafka-0-10-connector/kafka-0-10/src/main/scala/org/apache/spark/streaming/kafka010/KafkaTestUtils.scala	2016-11-24 16:35:56.000000000 +0800
+@@ -35,8 +35,7 @@
+ import org.apache.kafka.common.serialization.StringSerializer
+ import org.apache.zookeeper.server.{NIOServerCnxnFactory, ZooKeeperServer}
+ 
+-import org.apache.spark.SparkConf
+-import org.apache.spark.internal.Logging
++import org.apache.spark.{Logging, SparkConf}
+ import org.apache.spark.streaming.Time
+ import org.apache.spark.util.Utils
+ 
+diff -bur /Users/sshao/projects/apache-spark/external/kafka-0-10/src/main/scala/org/apache/spark/streaming/kafka010/KafkaUtils.scala /Users/sshao/projects/spark-streaming-kafka-0-10-connector/kafka-0-10/src/main/scala/org/apache/spark/streaming/kafka010/KafkaUtils.scala
+--- /Users/sshao/projects/apache-spark/external/kafka-0-10/src/main/scala/org/apache/spark/streaming/kafka010/KafkaUtils.scala	2016-11-11 10:52:39.000000000 +0800
++++ /Users/sshao/projects/spark-streaming-kafka-0-10-connector/kafka-0-10/src/main/scala/org/apache/spark/streaming/kafka010/KafkaUtils.scala	2016-11-24 16:35:56.000000000 +0800
+@@ -22,11 +22,9 @@
+ import org.apache.kafka.clients.consumer._
+ import org.apache.kafka.common.TopicPartition
+ 
+-import org.apache.spark.SparkContext
++import org.apache.spark.{Logging, SparkContext}
+ import org.apache.spark.annotation.Experimental
+ import org.apache.spark.api.java.{ JavaRDD, JavaSparkContext }
+-import org.apache.spark.api.java.function.{ Function0 => JFunction0 }
+-import org.apache.spark.internal.Logging
+ import org.apache.spark.rdd.RDD
+ import org.apache.spark.streaming.StreamingContext
+ import org.apache.spark.streaming.api.java.{ JavaInputDStream, JavaStreamingContext }
+diff -bur /Users/sshao/projects/apache-spark/external/kafka-0-10/src/test/scala/org/apache/spark/streaming/kafka010/DirectKafkaStreamSuite.scala /Users/sshao/projects/spark-streaming-kafka-0-10-connector/kafka-0-10/src/test/scala/org/apache/spark/streaming/kafka010/DirectKafkaStreamSuite.scala
+--- /Users/sshao/projects/apache-spark/external/kafka-0-10/src/test/scala/org/apache/spark/streaming/kafka010/DirectKafkaStreamSuite.scala	2016-11-11 11:18:14.000000000 +0800
++++ /Users/sshao/projects/spark-streaming-kafka-0-10-connector/kafka-0-10/src/test/scala/org/apache/spark/streaming/kafka010/DirectKafkaStreamSuite.scala	2016-11-24 16:35:56.000000000 +0800
+@@ -34,8 +34,7 @@
+ import org.scalatest.{BeforeAndAfter, BeforeAndAfterAll}
+ import org.scalatest.concurrent.Eventually
+ 
+-import org.apache.spark.{SparkConf, SparkContext, SparkFunSuite}
+-import org.apache.spark.internal.Logging
++import org.apache.spark.{Logging, SparkConf, SparkContext, SparkFunSuite}
+ import org.apache.spark.rdd.RDD
+ import org.apache.spark.streaming.{Milliseconds, StreamingContext, Time}
+ import org.apache.spark.streaming.dstream.DStream

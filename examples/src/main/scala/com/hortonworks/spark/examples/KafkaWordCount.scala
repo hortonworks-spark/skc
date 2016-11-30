@@ -44,7 +44,6 @@ object KafkaWordCount {
     val consumerStrategy = ConsumerStrategies.Subscribe[String, String](topicSet, kafkaParams)
 
     val sparkConf = new SparkConf()
-      .setMaster("local[*]")
     val ssc = new StreamingContext(sparkConf, Duration(2000L))
 
     val stream = KafkaUtils.createDirectStream(

@@ -20,8 +20,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.hortonworks.spark</groupId>
-  <artifactId>kafka-0-10-connector-main_2.10</artifactId>
+  <groupId>com.hortonworks</groupId>
+  <artifactId>spark-kafka-0-10-connector-main_2.10</artifactId>
   <version>1.0.0</version>
   <packaging>pom</packaging>
 

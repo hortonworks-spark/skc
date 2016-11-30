@@ -21,20 +21,20 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>com.hortonworks.spark</groupId>
-    <artifactId>kafka-0-10-connector-main_2.10</artifactId>
+    <groupId>com.hortonworks</groupId>
+    <artifactId>spark-kafka-0-10-connector-main_2.10</artifactId>
     <version>1.0.0</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
 
-  <artifactId>kafka-0-10-connector-assembly_2.10</artifactId>
+  <artifactId>spark-kafka-0-10-connector-assembly_2.10</artifactId>
   <packaging>jar</packaging>
   <name>Spark1 Streaming connector for Kafka 0.10 assembly</name>
 
   <dependencies>
     <dependency>
-      <groupId>com.hortonworks.spark</groupId>
-      <artifactId>kafka-0-10-connector_${scala.binary.version}</artifactId>
+      <groupId>com.hortonworks</groupId>
+      <artifactId>spark-kafka-0-10-connector_${scala.binary.version}</artifactId>
       <version>${project.version}</version>
     </dependency>
 

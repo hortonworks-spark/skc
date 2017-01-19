@@ -22,7 +22,7 @@
   <parent>
     <artifactId>spark-kafka-0-10-connector-main_2.10</artifactId>
     <groupId>com.hortonworks</groupId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
   <modelVersion>4.0.0</modelVersion>

@@ -25,6 +25,14 @@
   <version>1.0.1</version>
   <packaging>pom</packaging>
 
+  <distributionManagement>
+    <repository>
+      <id>${repoid}</id>
+      <name>${reponame}</name>
+      <url>${repourl}</url>
+    </repository>         
+  </distributionManagement>   
+
   <properties>
     <spark.version>1.6.2</spark.version>
     <scala.version>2.10.5</scala.version>
